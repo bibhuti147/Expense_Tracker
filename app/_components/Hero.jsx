@@ -1,9 +1,10 @@
+import Image from "next/image";
 import React from "react";
 
 const Hero = () => {
   return (
     <div>
-      <section className="bg-gray-50">
+      <section className="bg-gray-50 flex items-center flex-col">
         <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex">
           <div className="mx-auto max-w-xl text-center">
             <h1 className="text-3xl font-extrabold sm:text-5xl">
@@ -28,6 +29,13 @@ const Hero = () => {
             </div>
           </div>
         </div>
+        <Image
+          src={"/dashboard.png"}
+          alt="dashboard"
+          width={1000}
+          height={700}
+          className="my-5 rounded-xl border-2 "
+        />
       </section>
     </div>
   );

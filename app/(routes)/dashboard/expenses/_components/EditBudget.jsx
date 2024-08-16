@@ -94,7 +94,7 @@ const EditBudget = ({ budgetInfo, refreshData }) => {
                 <h2 className="text-black font-medium my-1">Budget Amount</h2>
                 <Input
                   type="number"
-                  placeHolder="e.g. 5000$"
+                  placeHolder="e.g. 5000₹"
                   defaultValue={budgetInfo?.amount}
                   onChange={(e) => setAmount(e.target.value)}
                 />
