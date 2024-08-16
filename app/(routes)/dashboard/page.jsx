@@ -11,17 +11,22 @@ import ExpenseListTable from "./expenses/_components/ExpenseListTable";
 import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
-  const { user } = useUser();
+  const { user, isLoaded } = useUser();
   const [budgetList, setBudgetList] = useState([]);
   const [expensesList, setExpensesList] = useState([]);
+  const [loading, setLoading] = useState(true);
   const route = useRouter();
 
   useEffect(() => {
-    user && getBudgetList();
-    if (!user) {
-      route.replace("/");
+    if (isLoaded) {
+      if (user) {
+        getBudgetList();
+        setLoading(false);
+      } else {
+        route.replace("/");
+      }
     }
-  }, [user]);
+  }, [user, isLoaded]);
 
   const getBudgetList = async () => {
     const result = await db
