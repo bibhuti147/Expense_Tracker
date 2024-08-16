@@ -80,12 +80,12 @@ const ExpensesScreen = ({ params }) => {
 
   return (
     <div className="p-10">
-      <h2 className="text-2xl font-bold flex justify-between items-center">
+      <h2 className="text-xl lg:text-2xl font-bold lg:flex justify-between items-center">
         <div className="flex gap-2 items-center">
           <ArrowLeft onClick={() => route.back()} className="cursor-pointer" />{" "}
           My Expenses
         </div>
-        <div className="flex gap-2 items-center">
+        <div className="mt-5 lg:mt-0 flex gap-2 items-center">
           <EditBudget
             budgetInfo={budgetInfo}
             refreshData={() => getBudgetInfo()}
