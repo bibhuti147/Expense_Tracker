@@ -8,14 +8,19 @@ import { Budgets, Expenses } from "@/utils/schema";
 import BarChartDashboard from "./_components/BarChartDashboard";
 import BudgetItem from "./budgets/_components/BudgetItem";
 import ExpenseListTable from "./expenses/_components/ExpenseListTable";
+import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
   const { user } = useUser();
   const [budgetList, setBudgetList] = useState([]);
   const [expensesList, setExpensesList] = useState([]);
+  const route = useRouter();
 
   useEffect(() => {
     user && getBudgetList();
+    if (!user) {
+      route.replace("/");
+    }
   }, [user]);
 
   const getBudgetList = async () => {
